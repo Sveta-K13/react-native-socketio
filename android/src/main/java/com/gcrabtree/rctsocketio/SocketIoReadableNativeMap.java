@@ -22,6 +22,10 @@ public class SocketIoReadableNativeMap extends ReadableNativeMap {
      * This converts the SocketIoReadableNativeMap to a Java usable HashMap.
      * @return converted HashMap.
      */
+    protected SocketIoReadableNativeMap(HybridData hybridData) {
+        super(hybridData);
+    }
+
     public static HashMap<String, Object> toHashMap(ReadableNativeMap map) {
         ReadableMapKeySetIterator iterator = map.keySetIterator();
         HashMap<String, Object> hashMap = new HashMap<>();
