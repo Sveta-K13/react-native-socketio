@@ -2,6 +2,7 @@ package com.gcrabtree.rctsocketio;
 
 import android.util.Log;
 
+import com.facebook.jni.HybridData;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableNativeMap;
 
@@ -15,6 +16,10 @@ import io.socket.client.IO;
 
 public class SocketIoReadableNativeMap extends ReadableNativeMap {
     private static final String TAG = "SIOReadableNativeMap";
+    
+    protected SocketIoReadableNativeMap(HybridData hybridData) {
+        super(hybridData);
+    }
     /**
      * Note: This will only be necessary until RN version 0.26 goes live
      * It will be deprecated from the project, as this is just included in that version of RN.
@@ -22,10 +27,6 @@ public class SocketIoReadableNativeMap extends ReadableNativeMap {
      * This converts the SocketIoReadableNativeMap to a Java usable HashMap.
      * @return converted HashMap.
      */
-    protected SocketIoReadableNativeMap(HybridData hybridData) {
-        super(hybridData);
-    }
-
     public static HashMap<String, Object> toHashMap(ReadableNativeMap map) {
         ReadableMapKeySetIterator iterator = map.keySetIterator();
         HashMap<String, Object> hashMap = new HashMap<>();
